@@ -4,10 +4,12 @@
   "description": "Vidéo motion design — Système Terrazzo résine (2A Résine x Sherwin-Williams Resuflor)",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "remotion studio",
-    "render:16x9": "remotion render Terrazzo-16x9 out/terrazzo-16x9.mp4 --concurrency=2 --timeout=120000",
-    "render:9x16": "remotion render Terrazzo-9x16 out/terrazzo-9x16.mp4 --concurrency=2 --timeout=120000",
+    "scan": "node scripts/scan-footage.mjs",
+    "start": "npm run scan && remotion studio",
     "render": "npm run render:16x9 && npm run render:9x16",
+    "render:16x9": "npm run scan && remotion render Formation-16x9 out/formation-16x9.mp4 --concurrency=2 --timeout=240000",
+    "render:9x16": "npm run scan && remotion render Formation-9x16 out/formation-9x16.mp4 --concurrency=2 --timeout=240000",
+    "render:anim": "remotion render Terrazzo-16x9 out/terrazzo-16x9.mp4 --concurrency=2 --timeout=120000 && remotion render Terrazzo-9x16 out/terrazzo-9x16.mp4 --concurrency=2 --timeout=120000",
     "upgrade": "remotion upgrade"
   },
   "dependencies": {

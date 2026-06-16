@@ -1,12 +1,45 @@
-# Le système Terrazzo — Vidéo cinématographique
+# Le système Terrazzo — Vidéos (2A Résine × Sherwin-Williams Resuflor)
 
-Vidéo de présentation, étape par étape, du système de sol **terrazzo résine époxy**
-(de la préparation du support à la finition), réalisée avec **Remotion**
-(React + TypeScript). Public : clients B2B, prescripteurs, applicateurs. Langue : français.
+Deux livrables, réalisés avec **Remotion** (React + TypeScript), en français, sur
+le système de sol **terrazzo résine époxy** (du support à la finition) :
 
-**2A Résine** — en partenariat avec **Sherwin-Williams Resuflor**.
+1. **Vidéo de FORMATION** = montage de **vraies images filmées** d'un applicateur,
+   avec habillage pro (chapitrage, repères techniques, sous-titres). ← livrable principal
+2. **Version ANIMÉE 2.5D** = plan-séquence généré par le code (sans tournage),
+   utile en attendant les rushes ou pour un usage 100 % motion design.
 
-## Parti pris : plan-séquence 2.5D
+---
+
+## 1) Vidéo de FORMATION (montage de rushes)  ⭐
+
+Le montage **incruste l'habillage 2A sur tes vidéos filmées** : bandeau marque,
+compteur d'étape, **repères techniques** animés (CSP 4-6, ≈ 9-10 mm, grains
+24→3000…), **lower-third** (titre + sous-titre FR), ralentis sur les gestes
+(talochage, ponçage), générique d'ouverture et clôture.
+
+### Comment l'utiliser
+1. Filme les plans et dépose-les dans **`public/footage/`** avec les noms attendus
+   (liste complète + conseils de tournage : `public/footage/COMMENT-AJOUTER-VOS-RUSHES.md`).
+2. Lance `npm run render`. Les rushes présents sont détectés automatiquement ;
+   les étapes sans fichier affichent un panneau « RUSH À DÉPOSER » (voir la DÉMO).
+3. Sorties : `out/formation-16x9.mp4` et `out/formation-9x16.mp4`.
+
+### Réglages par étape — `src/edit/config.ts`
+`durationSec` (durée à l'écran), `inSec` (début du rush gardé), `slowmo`
+(1 = réel, 0.5 = ralenti ×2), `title` / `subtitle` / `callouts` (textes & repères).
+
+### Fichiers
+`src/edit/` : `config.ts` (étapes), `Formation.tsx` (montage), `Clip.tsx`
+(lecture vidéo / placeholder), `Overlays.tsx` (habillage). Scan des rushes :
+`scripts/scan-footage.mjs` → `src/edit/footage.ts` (généré).
+
+---
+
+## 2) Version ANIMÉE 2.5D — plan-séquence
+
+Rendu avec `npm run render:anim` → `out/terrazzo-16x9.mp4` / `terrazzo-9x16.mp4`.
+
+### Parti pris : plan-séquence 2.5D
 
 La vidéo est un **plan-séquence continu** (pas de cartons de slide) : une **caméra
 virtuelle voyage en 3D** (CSS `preserve-3d`) autour d'un **bloc de sol** qui
