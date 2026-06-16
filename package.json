@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "remotion studio",
-    "render:16x9": "remotion render Terrazzo-16x9 out/terrazzo-16x9.mp4 --concurrency=2",
-    "render:9x16": "remotion render Terrazzo-9x16 out/terrazzo-9x16.mp4 --concurrency=2",
+    "render:16x9": "remotion render Terrazzo-16x9 out/terrazzo-16x9.mp4 --concurrency=2 --timeout=120000",
+    "render:9x16": "remotion render Terrazzo-9x16 out/terrazzo-9x16.mp4 --concurrency=2 --timeout=120000",
     "render": "npm run render:16x9 && npm run render:9x16",
     "upgrade": "remotion upgrade"
   },
