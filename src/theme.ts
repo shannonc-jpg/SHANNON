@@ -20,8 +20,8 @@ export const COLORS = {
   concrete: "#A29C90",
   concreteDark: "#857F73",
   concreteEdge: "#6F6A5F",
-  primer: "#3E6E8E",
-  primerLight: "#5E92B4",
+  primer: "#52707C",
+  primerLight: "#71909A",
   resin: "#E9E3D6", // matrice résine (liant clair)
   resinFilm: "#F2EEE4",
   brass: "#B8923B",
